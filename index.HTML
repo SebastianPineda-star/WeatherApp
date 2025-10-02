@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App — Dark</title>
+    <meta name="description" content="Aplicación del clima - diseño moderno dark." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="search-section" role="search" aria-label="Barra de búsqueda">
+      <input id="cityInput" type="text" placeholder="Buscar ciudad..." aria-label="Buscar ciudad" />
+      <button id="searchBtn" aria-label="Buscar">Buscar</button>
+    </header>
+
+    <main class="app-container" role="application" aria-label="Aplicación del clima">
+      <section class="current-weather">
+        <div class="current-header">
+          <h2 id="cityName">Ciudad</h2>
+          <p id="currentDate">Fecha</p>
+        </div>
+
+        <div class="weather-main">
+          <div class="weather-icon" id="weatherIcon">☀️</div>
+          <div class="weather-details">
+            <p class="temperature" id="temperature">--°C</p>
+            <p class="feels" id="feelsLike">Sensación: --°C</p>
+            <p id="humidity">Humedad: --%</p>
+            <p id="wind">Viento: -- km/h</p>
+            <p id="precipitation">Lluvia: -- mm</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="hourly-forecast">
+        <h3>Por hora</h3>
+        <div id="forecastHours" class="forecast-hours" aria-label="Pronóstico por hora">
+          <!-- JS: hour cards -->
+        </div>
+      </section>
+
+      <section class="daily-forecast">
+        <h3>Pronóstico semanal</h3>
+        <div id="forecastDays" class="forecast-days" aria-label="Pronóstico diario">
+          <!-- JS: day cards -->
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

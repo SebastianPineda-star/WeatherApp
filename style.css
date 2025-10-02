@@ -1,0 +1,69 @@
+/* Reset básico */
+* {margin:0;padding:0;box-sizing:border-box}
+
+/* Paleta profesional (variables) */
+:root{
+  --bg-900:#0b1420; 
+  --bg-800:#0f1b2a;
+  --card:#0f2633;
+  --muted:#9aa7b2; 
+  --text:#e6eef3; 
+  --accent:#2ea3d6;
+  --accent-2:#4fbfa6;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+}
+
+/* Fondo general */
+body{
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(90deg,var(--bg-900),var(--bg-800));
+  color:var(--text);
+  min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:28px 0;
+}
+
+/* Contenedor principal */
+.app-container{
+  width:90%;max-width:700px;padding:28px;border-radius:calc(var(--radius) + 8px);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 36px rgba(2,6,23,0.6);margin-top:110px
+}
+
+/* Buscador */
+.search-section{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(900px,calc(100% - 40px));display:flex;justify-content:center;gap:8px;padding:8px;z-index:9999;background:var(--glass);border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02)}
+
+.search-section input{padding:12px 14px;width:70%;border:none;border-radius:10px 0 0 10px;font-size:1rem;background:linear-gradient(180deg,var(--bg-800),var(--card));color:var(--text)}
+
+.search-section input::placeholder{color:var(--muted)}
+
+.search-section button{padding:12px 20px;background:linear-gradient(180deg,var(--accent-2),var(--accent));color:#042b30;border:none;border-radius:0 10px 10px 0;cursor:pointer;font-size:1.05rem;transition:filter .12s ease}
+.search-section button:hover{filter:brightness(.95)}
+
+.search-section button i {
+  font-size: 1.2rem;
+}
+
+/* Clima actual */
+.current-weather{text-align:center;margin-bottom:36px}
+.current-header h2{font-size:1.8rem;margin-bottom:6px}
+.current-header p{font-size:1rem;color:var(--muted)}
+
+.weather-main{display:flex;justify-content:center;align-items:center;gap:26px;margin-top:18px}
+.weather-icon{font-size:3.5rem;color:var(--accent)}
+.weather-details p{margin:6px 0;font-size:1rem;color:var(--muted)}
+
+/* Pronóstico diario */
+.daily-forecast h3,.hourly-forecast h3{font-size:1.3rem;margin-bottom:10px;border-bottom:1px solid rgba(79,191,166,0.12);padding-bottom:6px;color:var(--text)}
+
+.forecast-days{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:12px;margin-top:10px}
+.day-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;text-align:center;transition:transform .18s ease;border:1px solid rgba(255,255,255,0.02)}
+.day-card:hover{transform:translateY(-6px)}
+.day-card p{margin:5px 0;font-size:.95rem;color:var(--muted)}
+
+/* Pronóstico por hora */
+.forecast-hours{display:flex;overflow-x:auto;gap:12px;margin-top:10px;padding-bottom:10px}
+.hour-card{min-width:80px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px;border-radius:12px;text-align:center;transition:transform .18s ease;border:1px solid rgba(255,255,255,0.02)}
+.hour-card:hover{transform:translateY(-4px)}
+.hour-card p{margin:5px 0;font-size:.9rem;color:var(--muted)}
+
+/* Scroll personalizado */
+.forecast-hours::-webkit-scrollbar{height:7px}
+.forecast-hours::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--accent),var(--accent-2));border-radius:999px}

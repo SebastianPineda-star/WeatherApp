@@ -1,0 +1,93 @@
+/* Estilos base para Weather App - replicar preview.jpg
+   - Diseño responsivo para móvil/desktop
+   - Variables para colores y breakpoints
+*/
+:root {
+  --bg-1: #5b6cff;
+  --bg-2: #2b2f4a;
+  --card-bg: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.04);
+  --text: #e8eef8;
+  --muted: rgba(232,238,248,0.7);
+  --accent: #7dd3fc;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+html,body { height:100%; }
+body {
+  margin:0;
+  font-family: 'DM Sans', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:24px;
+}
+
+.weather-app{
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(10,10,20,0.35);
+}
+
+.search-panel{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:16px;
+}
+
+.search-top{ display:flex; justify-content:flex-end; align-items:center; }
+
+.units{ display:flex; align-items:center; gap:10px; }
+.switch{ position:relative; display:inline-block; width:44px; height:26px; }
+.switch input{ opacity:0; width:0; height:0; }
+.slider{ position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background:#999; border-radius:26px; transition: .2s; }
+.switch input:checked + .slider{ background: var(--accent); }
+.slider:before{ content:''; position:absolute; height:20px; width:20px; left:3px; bottom:3px; background:white; border-radius:50%; transition: .2s; }
+.switch input:checked + .slider:before{ transform: translateX(18px); }
+.unit-labels{ display:flex; gap:8px; font-weight:600; color:var(--muted); }
+.unit-labels .unit.active{ color:var(--text); }
+
+.search-box{ display:flex; gap:8px; }
+.search-box input{
+  flex:1; padding:12px 14px; border-radius:10px; border: none; background: var(--glass); color:var(--text);
+}
+.search-box button{
+  padding:12px 16px; border-radius:10px; border:none; background:var(--accent); color:#012; font-weight:700; cursor:pointer;
+}
+
+.today{
+  display:flex; gap:18px; align-items:center; padding:18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border-radius:12px;
+}
+.today-left{ flex:1; display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+.condition-icon{ font-size:48px; }
+.temp{ font-size:64px; font-weight:700; }
+.city{ color:var(--muted); }
+
+.today-right{ display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; width:360px; }
+.card{ background:var(--card-bg); padding:12px; border-radius:10px; text-align:left; }
+.card .label{ color:var(--muted); font-size:0.85rem; }
+.card .value{ font-size:1.2rem; font-weight:700; }
+
+.forecast{ margin-top:16px; }
+.daily, .hourly{ display:flex; gap:10px; overflow:auto; padding:8px 0; }
+.daily .day, .hourly .hour{ min-width:80px; background:var(--glass); padding:10px; border-radius:10px; text-align:center; }
+
+.attribution{ margin-top:12px; text-align:center; font-size:12px; color:var(--muted); }
+
+/* Responsive */
+@media (max-width:700px){
+  .weather-app{ padding:16px; }
+  .today{ flex-direction:column; align-items:stretch; }
+  .today-right{ width:100%; grid-template-columns: repeat(2, 1fr); }
+  .temp{ font-size:48px; }
+}
+
+/* Helpers */
+.visually-hidden{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.sr{ font-size:0; height:0; overflow:hidden; }
